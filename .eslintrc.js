@@ -22,6 +22,6 @@ module.exports = {
         },
       },
     ],
-    'react/self-closing-comp': 'error',
+    //  'react/self-closing-comp': 'error',
   },
 };
