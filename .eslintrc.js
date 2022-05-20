@@ -1,27 +1,44 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'prettier'],
-  plugins: ['prettier'],
+  extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 13,
+    sourceType: 'module',
+  },
   rules: {
-    'prettier/prettier': 'error',
-    'import/order': [
-      'warn',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
+    'no-param-reassign': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'object',
-        ],
-        'newlines-between': 'always',
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
+        ts: 'never',
+        tsx: 'never',
       },
     ],
-    'react/self-closing-comp': 'error',
+    'consistent-return': 'off',
+    'arrow-body-style': 'off',
+    'prefer-arrow-callback': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'prettier/prettier': 'warn',
   },
 };
